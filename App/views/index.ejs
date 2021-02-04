@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Restaurante</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css"/>
+</head>
+<body>
+    <div class="container bg-dark mt-5 pb-5 d-flex justify-content-center">
+        <div class="row">
+            <h3 class="text-center text-light">CARDAPIO</h3>
+            <form class=" p-3 bg-light border" action="/" method="POST">
+                <div class="form-group mb-3">
+                    <label for="exampleInputEmail1"  class="mb-2">PRATO</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="prato" placeholder="Nome">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="mb-2">DESCRIÇÃO</label>
+                    <input type="text" class="form-control" name="descricao" id="exampleInputPassword1" class="col-2" placeholder="Conteúdo">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="exampleInputPassword1" class="mb-2">VALOR</label>
+                    <input type="number" step="0.01"class="form-control" name="valor" id="exampleInputPassword1" placeholder="Preço Final">
+                </div>
+                <button type="submit" class="btn btn-dark">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <hr class="container my-5">
+
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="row w-100">
+            <h3 class="text-center">CARDAPIO COMPLETO</h3>
+            <table class="table table-striped mb-5 border">
+                <thead >
+                    <tr>
+                    <th scope="col">N°</th>
+                    <th scope="col">PRATO</th>
+                    <th scope="col">DESCRIÇÃO</th>
+                    <th scope="col">VALOR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let i = 0; i<dados.length; i++) { %>
+                        <tr>
+                        <th scope="row"><%= dados[i].id %></th>
+                        <td><%= dados[i].prato %></td>
+                        <td><%= dados[i].descricao %></td>
+                        <td>R$ <%= dados[i].valor %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
